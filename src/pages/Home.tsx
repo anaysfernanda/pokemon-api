@@ -83,7 +83,7 @@ const Home: React.FC = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="160"
                   image={
                     pokemonRedux?.sprites
                       ?.front_default
@@ -103,7 +103,10 @@ const Home: React.FC = () => {
                     variant="h5"
                     component="div"
                   >
-                    {pokemonRedux?.abilities?.map()}
+                    {
+                      pokemonRedux?.abilities?.[0]
+                        .ability?.name
+                    }
                   </Typography>
                 </CardContent>
               </CardActionArea>
