@@ -10,18 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { pokemonGetOne } from "../store/modules/PokemonSlice";
 
 const Home: React.FC = () => {
   const [nome, setNome] = useState<string>("");
 
-  const pokemonRedux = useAppSelector(
-    (state) => state.pokemon
-  );
+  const pokemonRedux = useAppSelector((state) => state.pokemon);
   const dispatch = useAppDispatch();
 
   const handleGetPokemon = () => {
@@ -50,10 +45,7 @@ const Home: React.FC = () => {
             alignItems: "center",
           }}
         >
-          <Typography
-            variant="h4"
-            sx={{ textAlign: "center", m: 2 }}
-          >
+          <Typography variant="h4" sx={{ textAlign: "center", m: 2 }}>
             Adicione uma tarefa
           </Typography>
           <Grid item xs={9}>
@@ -64,9 +56,7 @@ const Home: React.FC = () => {
               sx={{ mb: 1 }}
               fullWidth
               value={nome}
-              onChange={(ev) =>
-                setNome(ev.target.value)
-              }
+              onChange={(ev) => setNome(ev.target.value)}
             ></TextField>
 
             <Button
@@ -77,33 +67,19 @@ const Home: React.FC = () => {
               }}
               onClick={handleGetPokemon}
             >
-              Buscar
+              BuscarC
             </Button>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
                   height="140"
-                  image={
-                    pokemonRedux?.sprites
-                      ?.front_default
-                  }
+                  image={pokemonRedux?.sprites?.front_default}
                   alt="pokemon"
                 />
                 <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                  >
+                  <Typography gutterBottom variant="h5" component="div">
                     {pokemonRedux?.name}
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                  >
-                    {pokemonRedux?.abilities?.map()}
                   </Typography>
                 </CardContent>
               </CardActionArea>
