@@ -81,6 +81,9 @@ const Home: React.FC = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     {pokemonRedux?.name}
                   </Typography>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {pokemonRedux?.abilities?.map()}
+                  </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
