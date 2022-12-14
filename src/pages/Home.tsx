@@ -20,7 +20,6 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleGetPokemon = () => {
-    console.log(pokemonRedux.species);
     dispatch(pokemonGetOne(nome));
   };
 
@@ -80,9 +79,6 @@ const Home: React.FC = () => {
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     {pokemonRedux?.name}
-                  </Typography>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {pokemonRedux?.abilities?.map()}
                   </Typography>
                 </CardContent>
               </CardActionArea>
