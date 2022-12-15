@@ -53,7 +53,7 @@ const Home: React.FC = () => {
             variant="h4"
             sx={{ textAlign: "center", m: 2 }}
           >
-            Adicione uma tarefa
+            Procure o pokemon
           </Typography>
           <Grid item xs={9}>
             <TextField
@@ -76,14 +76,19 @@ const Home: React.FC = () => {
               }}
               onClick={handleGetPokemon}
             >
-              BuscarC
+              Buscar
             </Button>
             {pokemonRedux?.name && (
-              <Card sx={{ maxWidth: 345 }}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  marginBottom: "15px",
+                }}
+              >
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
+                    height="100%"
                     image={
                       pokemonRedux?.sprites
                         ?.front_default
@@ -92,19 +97,39 @@ const Home: React.FC = () => {
                   />
                   <CardContent>
                     <Typography
-                      gutterBottom
                       variant="h5"
+                      sx={{ color: "#666363" }}
+                    >
+                      Nome
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="h6"
                       component="div"
                     >
                       {pokemonRedux?.name}
                     </Typography>
                     <Typography
-                      gutterBottom
                       variant="h5"
-                      component="div"
+                      sx={{ color: "#666363" }}
                     >
-                      {pokemonRedux?.name}
+                      Habilidades
                     </Typography>
+                    {pokemonRedux?.abilities?.map(
+                      (item: any) => {
+                        return (
+                          <Typography
+                            gutterBottom
+                            variant="h6"
+                            component="div"
+                            key={item.ability.url}
+                          >
+                            {" "}
+                            {item.ability.name}
+                          </Typography>
+                        );
+                      }
+                    )}
                   </CardContent>
                 </CardActionArea>
               </Card>
